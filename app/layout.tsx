@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -38,7 +40,11 @@ export default function RootLayout({
 }>): React.JSX.Element {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>{children}</body>
+      <body className="flex min-h-screen flex-col bg-white text-gray-900 dark:bg-gray-950 dark:text-white">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
