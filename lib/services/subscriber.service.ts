@@ -64,5 +64,7 @@ function mapRowToSubscriber(row: Record<string, any>): Subscriber {
     email: row.email as string,
     subscribedAt: row.subscribed_at as string,
     confirmed: row.confirmed as boolean,
+    unsubscribedAt: (row.unsubscribed_at as string | null) ?? null,
+    createdAt: row.created_at as string,
   };
 }
