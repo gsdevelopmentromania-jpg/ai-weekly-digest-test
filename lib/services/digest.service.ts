@@ -3,7 +3,7 @@
  * Used by API route handlers; never imported directly in Client Components.
  */
 import { supabase } from '@/lib/supabase';
-import type { DigestIssue, PaginatedResult, PaginationParams } from '@/types';
+import type { DigestIssue, DigestItem, PaginatedResult, PaginationParams } from '@/types';
 
 /**
  * Fetch a paginated list of published digest issues, ordered by publishedAt desc.
@@ -60,8 +60,7 @@ export async function getDigestBySlug(slug: string): Promise<DigestIssue | null>
 // Mapping helpers (DB snake_case → TS camelCase)
 // ---------------------------------------------------------------------------
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function mapRowToDigestIssue(row: Record<string, any>): DigestIssue {
+function mapRowToDigestIssue(row: Record<string, unknown>): DigestIssue {
   return {
     id: row.id as string,
     slug: row.slug as string,
@@ -70,19 +69,25 @@ function mapRowToDigestIssue(row: Record<string, any>): DigestIssue {
     publishedAt: row.published_at as string,
     summary: row.summary as string,
     tags: (row.tags as string[]) ?? [],
-    items: (row.items ?? []).map(mapRowToDigestItem),
+    items: ((row.items as Record<string, unknown>[]) ?? []).map((item) =>
+      mapRowToDigestItem(item, row.id as string)
+    ),
+    createdAt: row.created_at as string,
+    updatedAt: row.updated_at as string,
   };
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function mapRowToDigestItem(row: Record<string, any>) {
+function mapRowToDigestItem(row: Record<string, unknown>, issueId: string): DigestItem {
   return {
     id: row.id as string,
+    issueId,
     title: row.title as string,
     url: row.url as string,
     source: row.source as string,
     summary: row.summary as string,
-    category: row.category as DigestIssue['items'][number]['category'],
+    category: row.category as DigestItem['category'],
     publishedAt: row.published_at as string,
+    position: (row.position as number) ?? 0,
+    createdAt: row.created_at as string,
   };
 }
