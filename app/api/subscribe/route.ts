@@ -1,15 +1,15 @@
 /**
- * POST /api/subscribe
- * Subscribes an email address to the AI Weekly Digest newsletter.
+ * DELETE /api/subscribe
+ * Removes an email address from the newsletter subscriber list.
  *
  * Request body (JSON): { email: string }
  */
 import { NextRequest, NextResponse } from 'next/server';
-import { subscribe } from '@/lib/services/subscriber.service';
+import { unsubscribe } from '@/lib/services/subscriber.service';
 import { subscribeSchema } from '@/lib/validators';
-import type { ApiResponse, Subscriber } from '@/types';
+import type { ApiResponse } from '@/types';
 
-export async function POST(req: NextRequest): Promise<NextResponse> {
+export async function DELETE(req: NextRequest): Promise<NextResponse> {
   let body: unknown;
 
   try {
@@ -31,9 +31,23 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   }
 
   try {
-    const subscriber = await subscribe(parsed.data.email);
-    const res: ApiResponse<Subscriber> = { data: subscriber, error: null, status: 201 };
-    return NextResponse.json(res, { status: 201 });
+    const removed = await unsubscribe(parsed.data.email);
+
+    if (!removed) {
+      const res: ApiResponse<null> = {
+        data: null,
+        error: 'Email not found',
+        status: 404,
+      };
+      return NextResponse.json(res, { status: 404 });
+    }
+
+    const res: ApiResponse<{ email: string }> = {
+      data: { email: parsed.data.email },
+      error: null,
+      status: 200,
+    };
+    return NextResponse.json(res, { status: 200 });
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Unexpected error';
     const res: ApiResponse<null> = { data: null, error: message, status: 500 };
