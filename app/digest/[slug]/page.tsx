@@ -17,9 +17,12 @@ const allIssues: DigestIssue[] = [
     summary:
       'This week marked a historic moment as OpenAI unveiled GPT-5 with unprecedented reasoning capabilities, while Google countered with Gemini Ultra 2. The AI race shows no signs of slowing down as both companies push toward more general AI systems.',
     tags: ['openai', 'google', 'models', 'agi'],
+    createdAt: '2026-03-30T00:00:00Z',
+    updatedAt: '2026-03-30T00:00:00Z',
     items: [
       {
         id: 'i1',
+        issueId: '3',
         title: 'OpenAI Unveils GPT-5 with Advanced Reasoning',
         url: 'https://openai.com',
         source: 'OpenAI Blog',
@@ -27,9 +30,12 @@ const allIssues: DigestIssue[] = [
           'OpenAI announced GPT-5 this week, claiming significant improvements in reasoning, coding, and multimodal understanding. Early benchmarks show it outperforming all prior public models on standard evaluations.',
         category: 'product',
         publishedAt: '2026-03-28T00:00:00Z',
+        position: 0,
+        createdAt: '2026-03-30T00:00:00Z',
       },
       {
         id: 'i2',
+        issueId: '3',
         title: 'Google DeepMind Releases Gemini Ultra 2',
         url: 'https://deepmind.google',
         source: 'DeepMind',
@@ -37,9 +43,12 @@ const allIssues: DigestIssue[] = [
           "Hours after OpenAI's announcement, Google DeepMind launched Gemini Ultra 2, featuring native video understanding and a 2M-token context window — the largest commercially available today.",
         category: 'product',
         publishedAt: '2026-03-29T00:00:00Z',
+        position: 1,
+        createdAt: '2026-03-30T00:00:00Z',
       },
       {
         id: 'i3',
+        issueId: '3',
         title: 'The AGI Timeline Debate Heats Up',
         url: 'https://example.com/agi-debate',
         source: 'MIT Technology Review',
@@ -47,6 +56,8 @@ const allIssues: DigestIssue[] = [
           "With rapid capability jumps at both OpenAI and Google, leading researchers are revisiting their AGI timeline estimates. Some now believe transformative AI could arrive within this decade.",
         category: 'research',
         publishedAt: '2026-03-29T00:00:00Z',
+        position: 2,
+        createdAt: '2026-03-30T00:00:00Z',
       },
     ],
   },
@@ -59,9 +70,12 @@ const allIssues: DigestIssue[] = [
     summary:
       'The EU AI Act enforcement phase officially began, compelling major AI labs to comply with transparency requirements. Simultaneously, U.S. lawmakers introduced bipartisan legislation targeting frontier AI safety.',
     tags: ['policy', 'eu', 'regulation', 'safety'],
+    createdAt: '2026-03-23T00:00:00Z',
+    updatedAt: '2026-03-23T00:00:00Z',
     items: [
       {
         id: 'i4',
+        issueId: '2',
         title: 'EU AI Act Enforcement Begins',
         url: 'https://ec.europa.eu',
         source: 'European Commission',
@@ -69,9 +83,12 @@ const allIssues: DigestIssue[] = [
           'The EU AI Act enters its enforcement phase, requiring AI providers to register high-risk systems and provide detailed documentation of training data and model capabilities.',
         category: 'policy',
         publishedAt: '2026-03-21T00:00:00Z',
+        position: 0,
+        createdAt: '2026-03-23T00:00:00Z',
       },
       {
         id: 'i5',
+        issueId: '2',
         title: 'Bipartisan US AI Safety Bill Introduced',
         url: 'https://congress.gov',
         source: 'The Verge',
@@ -79,6 +96,8 @@ const allIssues: DigestIssue[] = [
           'A new Senate bill proposes mandatory safety evaluations for frontier AI models before public release, with significant bipartisan support from both sides of the aisle.',
         category: 'policy',
         publishedAt: '2026-03-22T00:00:00Z',
+        position: 1,
+        createdAt: '2026-03-23T00:00:00Z',
       },
     ],
   },
@@ -91,9 +110,12 @@ const allIssues: DigestIssue[] = [
     summary:
       'Autonomous AI agents dominated headlines as Anthropic, Microsoft, and a wave of startups shipped agent frameworks capable of executing multi-step real-world workflows with minimal human supervision.',
     tags: ['agents', 'anthropic', 'microsoft', 'tools'],
+    createdAt: '2026-03-16T00:00:00Z',
+    updatedAt: '2026-03-16T00:00:00Z',
     items: [
       {
         id: 'i6',
+        issueId: '1',
         title: 'Anthropic Launches Claude Agents Platform',
         url: 'https://anthropic.com',
         source: 'Anthropic',
@@ -101,9 +123,12 @@ const allIssues: DigestIssue[] = [
           'Claude can now autonomously execute long-horizon software engineering tasks, including writing and running tests, debugging, and opening pull requests on GitHub.',
         category: 'product',
         publishedAt: '2026-03-14T00:00:00Z',
+        position: 0,
+        createdAt: '2026-03-16T00:00:00Z',
       },
       {
         id: 'i7',
+        issueId: '1',
         title: 'Microsoft Copilot Studio Gets Agentic Mode',
         url: 'https://microsoft.com',
         source: 'Microsoft Blog',
@@ -111,6 +136,8 @@ const allIssues: DigestIssue[] = [
           'Microsoft expanded Copilot Studio with agentic capabilities, allowing enterprise users to build custom agents that can browse the web, call APIs, and automate business workflows.',
         category: 'tools',
         publishedAt: '2026-03-15T00:00:00Z',
+        position: 1,
+        createdAt: '2026-03-16T00:00:00Z',
       },
     ],
   },
