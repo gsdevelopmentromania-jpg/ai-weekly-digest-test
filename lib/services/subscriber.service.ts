@@ -57,8 +57,7 @@ export async function unsubscribe(email: string): Promise<boolean> {
 // Mapping helper
 // ---------------------------------------------------------------------------
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function mapRowToSubscriber(row: Record<string, any>): Subscriber {
+function mapRowToSubscriber(row: Record<string, unknown>): Subscriber {
   return {
     id: row.id as string,
     email: row.email as string,
